@@ -26,7 +26,8 @@ SECRET_KEY = 'hzetdi)f#0okx$zu5y=7aae$9e6q25#+wmlu%)#=1s9h-m5s&_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['blogging-website111.herokuapp.com']
+#ALLOWED_HOSTS = ['blogging-website111.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -128,3 +129,23 @@ LOGIN_REDIRECT_URL = '/'
 
 
 DEBUG = True
+
+ALLOWED_HOSTS = ['*']
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+#ALLOWED_HOSTS = ['*']
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.8/howto/static-files/
+
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
